@@ -41,6 +41,7 @@ The NVDSP class is written in C++, so the classes that use it will have to be Ob
 
 ### Thanks to
 Alex Wiltschko - Creator of [Novocaine](http://alexbw.github.com/novocaine/)
+
 Yasoshima - Writer of [this article](http://objective-audio.jp/2008/02/biquad-filter.html), revealing how vDSP_deq22 works.
 
 hrnt - Helpful on IRC #iphonedev (freenode)
