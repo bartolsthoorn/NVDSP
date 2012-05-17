@@ -34,6 +34,9 @@
 - (void) dealloc
 {
     [super dealloc];
+    
+    free(gInputKeepBuffer);
+    free(gOutputKeepBuffer);
 }
 
 #pragma mark - Getters
@@ -117,11 +120,6 @@
 }
 
 - (void) applyFilter: (float *)data length:(NSUInteger)length channel:(NSUInteger)channel {
-    /*
-     The first two samples of data being passed to vDSP_deq22 have to be initialized from the previous call. So, you'd want to hold onto a float buffer and feed the tailing two samples after a vDSP_deq22 call back to the front of that array for the next time you call. (Alex Wiltschko)
-     */
-    
-    // Thanks a lot to: http://objective-audio.jp/2008/02/biquad-filter.html
     
     // Provide buffer for processing
     float *tInputBuffer = (float*) malloc((length + 2) * sizeof(float));
