@@ -21,6 +21,8 @@
             coefficients[i] = 0.0f;
         }
         
+        channelCount = 2;
+        
         for(int i = 0; i < DEFAULT_CHANNEL_COUNT; i++) {
             gInputKeepBuffer[i] = (float*) calloc(2, sizeof(float));
             gOutputKeepBuffer[i] = (float*) calloc(2, sizeof(float));
@@ -35,8 +37,10 @@
 {
     [super dealloc];
     
-    free(gInputKeepBuffer);
-    free(gOutputKeepBuffer);
+    for(int i = 0; i < channelCount; i++) {
+        free(gInputKeepBuffer[i]);
+        free(gOutputKeepBuffer[i]);
+    }
 }
 
 #pragma mark - Getters
@@ -52,10 +56,13 @@
 
 - (void) setChannelCount:(NSUInteger)channels {
     if (channels > 2) {
+        channelCount = channels;
         for(int i = 2; i < channels; i++) {
             gInputKeepBuffer[i] = (float*) calloc(2, sizeof(float));
             gOutputKeepBuffer[i] = (float*) calloc(2, sizeof(float));
         }
+    } else {
+        NSLog(@"If you audio is not interleaved and you have just one channel, you don't have to worry about channels and just use the method 'applyFilter' with channel set to '0'.");
     }
 }
 
