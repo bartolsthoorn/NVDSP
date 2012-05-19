@@ -2,39 +2,49 @@
 
 While Novocaine allows you to easily read/play audio, it is still quite hard to apply filters to the audio. This (Objective-C++) class will allow you to apply all sorts of filters (high-pass, band-pass, peaking EQ, shelving EQ etc.) in just a few lines of code.
 
-### Quick introduction/example
+### Quick introduction/example (highpass filter)
 ``` objective-c
-audioManager = [Novocaine audioManager];
-generalDSP = [[NVDSP alloc] init];
+// ... import Novocaine and audioFilerReader
+#import "NVDSP/NVDSP.h"
+#import "NVDSP/Filters/NVHighpassFilter.h"
 
-Novocaine *audioManager = [Novocaine audioManager];
+// init Novocaine audioManager
+audioManager = [Novocaine audioManager];
+float samplingRate = audioManager.samplingRate;
+
+// init fileReader which we will later fetch audio from
+NSURL *inputFileURL = [[NSBundle mainBundle] URLForResource:@"Trentemoller-Miss-You" withExtension:@"mp3"];
+
+fileReader = [[AudioFileReader alloc] 
+                  initWithAudioFileURL:inputFileURL 
+                  samplingRate:audioManager.samplingRate
+                  numChannels:audioManager.numOutputChannels];
+
+// setup Highpass filter
+NVHighpassFilter *HPF;
+HPF = [[NVHighpassFilter alloc] initWithSamplingRate:samplingRate];
+
+HPF.cornerFrequency = 2000.0f;
+HPF.Q = 0.5f;
+
+// setup audio output block
+[fileReader play];
 [audioManager setOutputBlock:^(float *outData, UInt32 numFrames, UInt32 numChannels) {
     [fileReader retrieveFreshAudio:outData numFrames:numFrames numChannels:numChannels];
-    // Audio comes in interleaved
     
-    // SamplingRate is required for filter calculation so set it first
-    [generalDSP setSamplingRate:audioManager.samplingRate];
-    
-    // Prepare for a HPF (high-pass filter)
-    float cornerFrequency = 1000.0f;
-    [generalDSP setHPF:cornerFrequency Q:0.5f];
-    
-    // Apply HPF to the audio data
-    [generalDSP applyInterleavedFilter:outData length:numFrames*numChannels];
-    
-    // Prepare for another filter, a peaking EQ
-    float centerFrequency = 4000.0f;
-    [generalDSP setPeakingEQ:centerFrequency Q:4.0f gain:20];
-    
-    // Apply peaking EQ filter
-    [generalDSP applyInterleavedFilter:outData length:numFrames*numChannels];
-    
-    // Audio is now filtered by two types of filters and still interleaved :)
+    [HPF filterData:outData numFrames:numFrames numChannels:numChannels];
 }];
 ```
 
 ### More examples
-Coming soon...
+Peaking EQ filter
+``` objective-c
+NVPeakingEQFilter *PEF = [[NVPeakingEQFilter alloc] initWithSamplingRate:audioManager.samplingRate];
+PEF.centerFrequency = 1000.0f;
+PEF.Q = 3.0f;
+PEF.G = 20.0f;
+[PEF filterData:data numFrames:numFrames numChannels:numChannels];
+```
 
 ### A thing to note: 
 The NVDSP class is written in C++, so the classes that use it will have to be Objective-C++. Change all the files that use NVDSP from MyClass.m to MyClass.mm.

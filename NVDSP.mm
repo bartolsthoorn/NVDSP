@@ -9,21 +9,25 @@
 
 #import "NVDSP.h"
 
-#define DEFAULT_CHANNEL_COUNT 2
+#define MAX_CHANNEL_COUNT 2
 
 @implementation NVDSP
 
-- (id) init
-{
+- (id)init {
+    [super init];
+    return self;
+}
+
+- (id)initWithSamplingRate:(float)sr {
     if ( self = [super init] )
     {
+        samplingRate = sr;
+        
         for(int i = 0; i < 5; i++) {
             coefficients[i] = 0.0f;
         }
         
-        channelCount = 2;
-        
-        for(int i = 0; i < DEFAULT_CHANNEL_COUNT; i++) {
+        for(int i = 0; i < MAX_CHANNEL_COUNT; i++) {
             gInputKeepBuffer[i] = (float*) calloc(2, sizeof(float));
             gOutputKeepBuffer[i] = (float*) calloc(2, sizeof(float));
         }
@@ -37,69 +41,13 @@
 {
     [super dealloc];
     
-    for(int i = 0; i < channelCount; i++) {
+    for(int i = 0; i < MAX_CHANNEL_COUNT; i++) {
         free(gInputKeepBuffer[i]);
         free(gOutputKeepBuffer[i]);
     }
 }
 
-#pragma mark - Getters
-
-- (float *) getCoefficients {
-    return coefficients;
-}
-- (float) getSamplingRate {
-    return samplingRate;
-}
-
 #pragma mark - Setters
-
-- (void) setChannelCount:(NSUInteger)channels {
-    if (channels > 2) {
-        channelCount = channels;
-        for(int i = 2; i < channels; i++) {
-            gInputKeepBuffer[i] = (float*) calloc(2, sizeof(float));
-            gOutputKeepBuffer[i] = (float*) calloc(2, sizeof(float));
-        }
-    } else {
-        NSLog(@"If you audio is not interleaved and you have just one channel, you don't have to worry about channels and just use the method 'applyFilter' with channel set to '0'.");
-    }
-}
-
-- (void) setSamplingRate:(float)input {
-    samplingRate = input;
-}
-
-
-- (void) setPeakingEQ:(float)Fc Q:(float)Q gain:(float)G {
-   
-    [self intermediateVariables:Fc Q:Q];
-    
-    float A = sqrt(pow(10.0f, (G/20.0f)));
-    
-    a0 = (1  + (alpha / A));
-    b0 = (1 + (alpha * A))     / a0; 
-    b1 = (-2 * omegaC)         / a0; 
-    b2 = (1 - (alpha * A))     / a0;
-    a1 = (-2 * omegaC)         / a0; 
-    a2 = (1 - alpha / A)       / a0;
-    
-    [self setCoefficients];
-}
-
-- (void) setHPF:(float)Fc Q:(float)Q {
-    
-    [self intermediateVariables:Fc Q:Q];
-    
-    a0 = 1 + alpha;
-    b0 = ((1 + omegaC)/2)      / a0;
-    b1 = (-1*(1 + omegaC))     / a0;
-    b2 = ((1 + omegaC)/2)      / a0;
-    a1 = (-2 * omegaC)         / a0;
-    a2 = (1 - alpha)           / a0; 
-    
-    [self setCoefficients];
-}
 
 - (void) setCoefficients {
     // // { b0/a0, b1/a0, b2/a0, a1/a0, a2/a0 }
@@ -117,36 +65,59 @@
     vDSP_vsmul(data, 1, &gain, data, 1, length);
 }
 
-- (void) applyInterleavedFilter: (float*) data length:(NSUInteger)length {
-    float left[length/2];
-    float right[length/2];
-    [self deinterleave:data left:left right:right length:length/2];
-    [self applyFilter:left length:length/2 channel:0];
-    [self applyFilter:right length:length/2 channel:1];
-    [self interleave:data left:left right:right length:length/2];
-}
-
-- (void) applyFilter: (float *)data length:(NSUInteger)length channel:(NSUInteger)channel {
+- (void) filterContiguousData: (float *)data numFrames:(UInt32)numFrames channel:(UInt32)channel {
     
     // Provide buffer for processing
-    float *tInputBuffer = (float*) malloc((length + 2) * sizeof(float));
-    float *tOutputBuffer = (float*) malloc((length + 2) * sizeof(float));
+    float *tInputBuffer = (float*) malloc((numFrames + 2) * sizeof(float));
+    float *tOutputBuffer = (float*) malloc((numFrames + 2) * sizeof(float));
     
     // Copy the data
     memcpy(tInputBuffer, gInputKeepBuffer[channel], 2 * sizeof(float));
     memcpy(tOutputBuffer, gOutputKeepBuffer[channel], 2 * sizeof(float));
-    memcpy(&(tInputBuffer[2]), data, length * sizeof(float));
+    memcpy(&(tInputBuffer[2]), data, numFrames * sizeof(float));
     
     // Do the processing
-    vDSP_deq22(tInputBuffer, 1, coefficients, tOutputBuffer, 1, length);
+    vDSP_deq22(tInputBuffer, 1, coefficients, tOutputBuffer, 1, numFrames);
     
     // Copy the data
-    memcpy(data, tOutputBuffer, length * sizeof(float));
-    memcpy(gInputKeepBuffer[channel], &(tInputBuffer[length]), 2 * sizeof(float));
-    memcpy(gOutputKeepBuffer[channel], &(tOutputBuffer[length]), 2 * sizeof(float));
+    memcpy(data, tOutputBuffer, numFrames * sizeof(float));
+    memcpy(gInputKeepBuffer[channel], &(tInputBuffer[numFrames]), 2 * sizeof(float));
+    memcpy(gOutputKeepBuffer[channel], &(tOutputBuffer[numFrames]), 2 * sizeof(float));
     
     free(tInputBuffer);
     free(tOutputBuffer);
+}
+
+- (void) filterData:(float *)data numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels {
+    //[self setCoefficients];
+    
+    switch (numChannels) {
+        case 2:
+        {
+            float *left = (float*) malloc((numFrames + 2) * sizeof(float));
+            float *right = (float*) malloc((numFrames + 2) * sizeof(float));
+            
+            [self deinterleave:data left:left right:right length:numFrames];
+            [self filterContiguousData:left numFrames:numFrames channel:0];
+            [self filterContiguousData:right numFrames:numFrames channel:1];
+            [self interleave:data left:left right:right length:numFrames];
+            
+            free(left);
+            free(right);
+        }
+        break;
+            
+        case 1:
+        {
+            [self filterContiguousData:data numFrames:numFrames channel:0];
+        }
+            
+        default:
+        {
+            NSLog(@"Number of channels not supported.");
+        }
+        break;
+    }
 }
 
 #pragma mark - Etc
