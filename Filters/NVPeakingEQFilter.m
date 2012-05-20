@@ -36,8 +36,6 @@
         
         float A = sqrt(pow(10.0f, (G/20.0f)));
         
-        NSLog(@"A: %f", A);
-        
         a0 = (1  + (alpha / A));
         b0 = (1 + (alpha * A))     / a0; 
         b1 = (-2 * omegaC)         / a0; 
