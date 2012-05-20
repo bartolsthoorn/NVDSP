@@ -20,7 +20,7 @@
 }
 
 - (void) setG:(float)_G {
-    Q = _G;
+    G = _G;
     [self calculateCoefficients];
 }
 
@@ -35,6 +35,8 @@
         [self intermediateVariables:centerFrequency Q:Q];
         
         float A = sqrt(pow(10.0f, (G/20.0f)));
+        
+        NSLog(@"A: %f", A);
         
         a0 = (1  + (alpha / A));
         b0 = (1 + (alpha * A))     / a0; 
