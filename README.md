@@ -56,6 +56,16 @@ LPF.Q = 0.8f;
 [LPF filterData:data numFrames:numFrames numChannels:numChannels];
 ```
 
+Notch filter
+``` objective-c
+// import Novocaine.h and NVDSP.h
+#import "NVDSP/Filter/NVNotchFilter.h"
+NVNotchFilter *NF = [[NVNotchFilter alloc] initWithSamplingRate:audioManager.samplingRate];
+NF.centerFrequency = 3000.0f;
+NF.Q = 0.8f;
+[NF filterData:data numFrames:numFrames numChannels:numChannels];
+```
+
 Measure dB level (ranging from -51.0f to 0.0f)
 ``` objective-c
 // import Novocaine.h and NVDSP.h
