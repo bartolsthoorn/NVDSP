@@ -11,7 +11,7 @@
 #import <Accelerate/Accelerate.h>
 
 @interface NVDSP : NSObject {
-    float zero;
+    float zero, one;
     
     float samplingRate;
     
@@ -45,5 +45,6 @@
 
 #pragma mark - Debug
 - (void) logCoefficients;
+- (void) stabilityWarning;
 
 @end

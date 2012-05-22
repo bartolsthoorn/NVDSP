@@ -33,6 +33,7 @@
         }
         
         zero = 0.0f;
+        one = 1.0f;
     }
     return self;
 }
@@ -56,6 +57,8 @@
     coefficients[2] = b2;
     coefficients[3] = a1;
     coefficients[4] = a2;
+    
+    [self stabilityWarning];
 }
 
 
@@ -168,6 +171,19 @@
     }
     
     NSLog(@"------------\n");
+}
+- (void) stabilityWarning {
+    if (abs(a1) < (1 + a2)) {
+    } else {
+        NSLog(@"|a1| < 1 + a2 ");
+        NSLog(@"Warning: a1 is unstable\n");
+    }
+    
+    if (abs(a2) < 1) {
+    } else {
+        NSLog(@"|a2| < 1");
+        NSLog(@"Warning: a2 is unstable\n");
+    }
 }
 
 @end
