@@ -68,8 +68,10 @@ NF.Q = 0.8f;
 
 #### Bandpass filter
 There are two types of bandpass filters:
-- 0 dB gain bandpass filter (NVBandpassFilter.h)
-- Peak gain Q bandpass filter (NVBandpassQPeakGainFilter.h)
+
+    * 0 dB gain bandpass filter (NVBandpassFilter.h)
+    * Peak gain Q bandpass filter (NVBandpassQPeakGainFilter.h)
+
 ``` objective-c
 // import Novocaine.h and NVDSP.h
 #import "NVDSP/Filter/NVBandpassFilter.h"
