@@ -37,7 +37,7 @@ HPF.Q = 0.5f;
 ```
 
 ### More examples
-## Peaking EQ filter
+#### Peaking EQ filter
 ``` objective-c
 NVPeakingEQFilter *PEF = [[NVPeakingEQFilter alloc] initWithSamplingRate:audioManager.samplingRate];
 PEF.centerFrequency = 1000.0f;
@@ -46,7 +46,7 @@ PEF.G = 20.0f;
 [PEF filterData:data numFrames:numFrames numChannels:numChannels];
 ```
 
-## Lowpass filter
+#### Lowpass filter
 ``` objective-c
 // import Novocaine.h and NVDSP.h
 #import "NVDSP/Filter/NVLowpassFilter.h"
@@ -56,7 +56,7 @@ LPF.Q = 0.8f;
 [LPF filterData:data numFrames:numFrames numChannels:numChannels];
 ```
 
-## Notch filter
+#### Notch filter
 ``` objective-c
 // import Novocaine.h and NVDSP.h
 #import "NVDSP/Filter/NVNotchFilter.h"
@@ -66,7 +66,7 @@ NF.Q = 0.8f;
 [NF filterData:data numFrames:numFrames numChannels:numChannels];
 ```
 
-## Bandpass filter
+#### Bandpass filter
 There are two types of bandpass filters:
     0 dB gain bandpass filter (NVBandpassFilter.h)
     Peak gain Q bandpass filter (NVBandpassQPeakGainFilter.h)
@@ -79,7 +79,7 @@ BPF.Q = 0.9f;
 [BPF filterData:data numFrames:numFrames numChannels:numChannels];
 ```
 
-## Measure dB level (ranging from -51.0f to 0.0f)
+#### Measure dB level (ranging from -51.0f to 0.0f)
 ``` objective-c
 // import Novocaine.h and NVDSP.h
 #import "NVDSP/Utilities/NVSoundLevelMeter.h"
@@ -91,7 +91,7 @@ NSLog(@"dB level: %f", dB);
 // You call this inside the input or outputBlock: [audioManager setOutputBlock:^...
 ```
 
-## Applying overall gain. 
+#### Applying overall gain. 
 All sample values (typically -1.0f .. 1.0f when not clipping) are multiplied by the gain value.
 ``` objective-c
 // import Novocaine.h and NVDSP.h
