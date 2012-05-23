@@ -3,8 +3,8 @@
 //  NVDSP
 //
 //  Created by Bart Olsthoorn on 13/05/2012.
-//  Copyright (c) 2012 Bart Olsthoorn. All rights reserved.
-//  http://bartolsthoorn.nl
+//  Copyright (c) 2012 Bart Olsthoorn
+//  MIT licensed, see license.txt
 //
 
 #import <Foundation/Foundation.h>
@@ -46,5 +46,7 @@
 #pragma mark - Debug
 - (void) logCoefficients;
 - (void) stabilityWarning;
+
+@endtyWarning;
 
 @end
