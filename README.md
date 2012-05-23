@@ -68,8 +68,8 @@ NF.Q = 0.8f;
 
 #### Bandpass filter
 There are two types of bandpass filters:
-    0 dB gain bandpass filter (NVBandpassFilter.h)
-    Peak gain Q bandpass filter (NVBandpassQPeakGainFilter.h)
+- 0 dB gain bandpass filter (NVBandpassFilter.h)
+- Peak gain Q bandpass filter (NVBandpassQPeakGainFilter.h)
 ``` objective-c
 // import Novocaine.h and NVDSP.h
 #import "NVDSP/Filter/NVBandpassFilter.h"
@@ -124,6 +124,6 @@ The NVDSP class is written in C++, so the classes that use it will have to be Ob
 ### Thanks to
 Alex Wiltschko - Creator of [Novocaine](http://alexbw.github.com/novocaine/)
 
-Yasoshima - Writer of [this article](http://objective-audio.jp/2008/02/biquad-filter.html), revealing how vDSP_deq22 works.
+Yasoshima - Writer of [this article](http://objective-audio.jp/2008/02/biquad-filter.html), revealing how vDSP_deq22 works. (and google translate, I don't speak Japanese)
 
 hrnt - Helpful on IRC #iphonedev (freenode)
