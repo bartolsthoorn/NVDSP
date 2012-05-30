@@ -30,12 +30,12 @@
 #pragma mark - Setters
 - (void) setCoefficients;
 
+
 #pragma mark - Effects
 - (void) filterContiguousData: (float *)data numFrames:(UInt32)numFrames channel:(UInt32)channel;
 - (void) filterData:(float *)data numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels;
 
 - (void) applyGain:(float *)data length:(vDSP_Length)length gain:(float)gain;
-
 
 
 #pragma mark - Etc
@@ -46,7 +46,5 @@
 #pragma mark - Debug
 - (void) logCoefficients;
 - (void) stabilityWarning;
-
-@endtyWarning;
 
 @end

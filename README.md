@@ -109,15 +109,15 @@ Multiple peaking EQs with high gains can cause clipping. Clipping is basically s
 #import "NVDSP/Utilities/NVClippingDetection.h"
 NVClippingDetection *CDT = [[NVClippingDetection alloc] init];
 // ... possible clipped outData ...//
-[CDT counterClipping:outData threshold:0.8f numFrames:numFrames numChannels:numChannels];
+[CDT counterClipping:outData numFrames:numFrames numChannels:numChannels];
 // ... outData is now safe ...//
 
 // or get the amount of clipped samples:
- - (float) getClippedSamples:(float *)data threshold:(float)threshold numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels;
+ - (float) getClippedSamples:(float *)data numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels;
 // or get the percentage of clipped samples:
  - (float) getClippedPercentage:(float*)data numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels;
 // or get the maximum value of a clipped sample that was found
- - (float) getClippingSample:(float *)data threshold:(float)threshold numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels;
+ - (float) getClippingSample:(float *)data numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels;
 ```
 
 ### A thing to note: 
