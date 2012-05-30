@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>NVDSP by bartolsthoorn</title>
+    <title>NVDSP - iOS DSP </title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -70,111 +70,7 @@
 
 
 <h3>More examples</h3>
-
-<h4>Peaking EQ filter</h4>
-
-<div class="highlight">
-<pre><span class="n">NVPeakingEQFilter</span> <span class="o">*</span><span class="n">PEF</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVPeakingEQFilter</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithSamplingRate:</span><span class="n">audioManager</span><span class="p">.</span><span class="n">samplingRate</span><span class="p">];</span>
-<span class="n">PEF</span><span class="p">.</span><span class="n">centerFrequency</span> <span class="o">=</span> <span class="mf">1000.0f</span><span class="p">;</span>
-<span class="n">PEF</span><span class="p">.</span><span class="n">Q</span> <span class="o">=</span> <span class="mf">3.0f</span><span class="p">;</span>
-<span class="n">PEF</span><span class="p">.</span><span class="n">G</span> <span class="o">=</span> <span class="mf">20.0f</span><span class="p">;</span>
-<span class="p">[</span><span class="n">PEF</span> <span class="nl">filterData:</span><span class="n">data</span> <span class="nl">numFrames:</span><span class="n">numFrames</span> <span class="nl">numChannels:</span><span class="n">numChannels</span><span class="p">];</span>
-</pre>
-</div>
-
-
-<h4>Lowpass filter</h4>
-
-<div class="highlight">
-<pre><span class="cp">// import Novocaine.h and NVDSP.h</span>
-<span class="cp">#import "NVDSP/Filter/NVLowpassFilter.h"</span>
-<span class="n">NVLowpassFilter</span> <span class="o">*</span><span class="n">LPF</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVLowpassFilter</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithSamplingRate:</span><span class="n">audioManager</span><span class="p">.</span><span class="n">samplingRate</span><span class="p">];</span>
-<span class="n">LPF</span><span class="p">.</span><span class="n">cornerFrequency</span> <span class="o">=</span> <span class="mf">800.0f</span><span class="p">;</span>
-<span class="n">LPF</span><span class="p">.</span><span class="n">Q</span> <span class="o">=</span> <span class="mf">0.8f</span><span class="p">;</span>
-<span class="p">[</span><span class="n">LPF</span> <span class="nl">filterData:</span><span class="n">data</span> <span class="nl">numFrames:</span><span class="n">numFrames</span> <span class="nl">numChannels:</span><span class="n">numChannels</span><span class="p">];</span>
-</pre>
-</div>
-
-
-<h4>Notch filter</h4>
-
-<div class="highlight">
-<pre><span class="cp">// import Novocaine.h and NVDSP.h</span>
-<span class="cp">#import "NVDSP/Filter/NVNotchFilter.h"</span>
-<span class="n">NVNotchFilter</span> <span class="o">*</span><span class="n">NF</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVNotchFilter</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithSamplingRate:</span><span class="n">audioManager</span><span class="p">.</span><span class="n">samplingRate</span><span class="p">];</span>
-<span class="n">NF</span><span class="p">.</span><span class="n">centerFrequency</span> <span class="o">=</span> <span class="mf">3000.0f</span><span class="p">;</span>
-<span class="n">NF</span><span class="p">.</span><span class="n">Q</span> <span class="o">=</span> <span class="mf">0.8f</span><span class="p">;</span>
-<span class="p">[</span><span class="n">NF</span> <span class="nl">filterData:</span><span class="n">data</span> <span class="nl">numFrames:</span><span class="n">numFrames</span> <span class="nl">numChannels:</span><span class="n">numChannels</span><span class="p">];</span>
-</pre>
-</div>
-
-
-<h4>Bandpass filter</h4>
-
-<p>There are two types of bandpass filters:</p>
-
-<pre><code>* 0 dB gain bandpass filter (NVBandpassFilter.h)
-* Peak gain Q bandpass filter (NVBandpassQPeakGainFilter.h)
-</code></pre>
-
-<div class="highlight">
-<pre><span class="cp">// import Novocaine.h and NVDSP.h</span>
-<span class="cp">#import "NVDSP/Filter/NVBandpassFilter.h"</span>
-<span class="n">NVBandpassFilter</span> <span class="o">*</span><span class="n">BPF</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVBandpassFilter</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithSamplingRate:</span><span class="n">audioManager</span><span class="p">.</span><span class="n">samplingRate</span><span class="p">];</span>
-<span class="n">BPF</span><span class="p">.</span><span class="n">centerFrequency</span> <span class="o">=</span> <span class="mf">2500.0f</span><span class="p">;</span>
-<span class="n">BPF</span><span class="p">.</span><span class="n">Q</span> <span class="o">=</span> <span class="mf">0.9f</span><span class="p">;</span>
-<span class="p">[</span><span class="n">BPF</span> <span class="nl">filterData:</span><span class="n">data</span> <span class="nl">numFrames:</span><span class="n">numFrames</span> <span class="nl">numChannels:</span><span class="n">numChannels</span><span class="p">];</span>
-</pre>
-</div>
-
-
-<h4>Measure dB level (ranging from -51.0f to 0.0f)</h4>
-
-<div class="highlight">
-<pre><span class="cp">// import Novocaine.h and NVDSP.h</span>
-<span class="cp">#import "NVDSP/Utilities/NVSoundLevelMeter.h"</span>
-<span class="n">NVSoundLevelMeter</span> <span class="o">*</span><span class="n">SLM</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVSoundLevelMeter</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-<span class="kt">float</span> <span class="n">dB</span> <span class="o">=</span> <span class="p">[</span><span class="n">SLM</span> <span class="nl">getdBLevel:</span><span class="n">outData</span> <span class="nl">numFrames:</span><span class="n">numFrames</span> <span class="nl">numChannels:</span><span class="n">numChannels</span><span class="p">];</span>
-<span class="n">NSLog</span><span class="p">(</span><span class="s">@"dB level: %f"</span><span class="p">,</span> <span class="n">dB</span><span class="p">);</span>
-<span class="c1">// NSLogging in an output loop will most likely cause hickups/clicky noises, but it does log the dB level!</span>
-<span class="c1">// To get a proper dB value, you have to call the getdBLevel method a few times (it has memory of previous values)</span>
-<span class="c1">// You call this inside the input or outputBlock: [audioManager setOutputBlock:^...</span>
-</pre>
-</div>
-
-
-<h4>Applying overall gain.</h4>
-
-<p>All sample values (typically -1.0f .. 1.0f when not clipping) are multiplied by the gain value.</p>
-
-<div class="highlight">
-<pre><span class="c1">// import Novocaine.h and NVDSP.h</span>
-<span class="n">NVDSP</span> <span class="o">*</span><span class="n">generalDSP</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVDSP</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-<span class="p">[</span><span class="n">generalDSP</span> <span class="nl">applyGain:</span><span class="n">outData</span> <span class="nl">length:</span><span class="n">numFrames</span><span class="o">*</span><span class="n">numChannels</span> <span class="nl">gain:</span><span class="mf">0.8</span><span class="p">];</span>
-</pre>
-</div>
-
-
-<h3>Clipping</h3>
-
-<p>Multiple peaking EQs with high gains can cause clipping. Clipping is basically sample data that exceeds the maximum or minimum value of 1.0f or -1.0f respectively. Clipping will cause really loud and dirty noises, like a bad overdrive effect. You can use the method <code>counterClipping</code> to prevent clipping (it will reduce the sound level).</p>
-
-<div class="highlight">
-<pre><span class="cp">// import Novocaine.h and NVDSP.h</span>
-<span class="cp">#import "NVDSP/Utilities/NVClippingDetection.h"</span>
-<span class="n">NVClippingDetection</span> <span class="o">*</span><span class="n">CDT</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVClippingDetection</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-<span class="c1">// ... possible clipped outData ...//</span>
-<span class="p">[</span><span class="n">CDT</span> <span class="nl">counterClipping:</span><span class="n">outData</span> <span class="nl">threshold:</span><span class="mf">0.8f</span> <span class="nl">numFrames:</span><span class="n">numFrames</span> <span class="nl">numChannels:</span><span class="n">numChannels</span><span class="p">];</span>
-<span class="c1">// ... outData is now safe ...//</span>
-
-<span class="c1">// or get the amount of clipped samples:</span>
- <span class="o">-</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="nl">getClippedSamples:</span><span class="p">(</span><span class="kt">float</span> <span class="o">*</span><span class="p">)</span><span class="n">data</span> <span class="nl">threshold:</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">threshold</span> <span class="nl">numFrames:</span><span class="p">(</span><span class="n">UInt32</span><span class="p">)</span><span class="n">numFrames</span> <span class="nl">numChannels:</span><span class="p">(</span><span class="n">UInt32</span><span class="p">)</span><span class="n">numChannels</span><span class="p">;</span>
-<span class="c1">// or get the percentage of clipped samples:</span>
- <span class="o">-</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="nl">getClippedPercentage:</span><span class="p">(</span><span class="kt">float</span><span class="o">*</span><span class="p">)</span><span class="n">data</span> <span class="nl">numFrames:</span><span class="p">(</span><span class="n">UInt32</span><span class="p">)</span><span class="n">numFrames</span> <span class="nl">numChannels:</span><span class="p">(</span><span class="n">UInt32</span><span class="p">)</span><span class="n">numChannels</span><span class="p">;</span>
-<span class="c1">// or get the maximum value of a clipped sample that was found</span>
- <span class="o">-</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="nl">getClippingSample:</span><span class="p">(</span><span class="kt">float</span> <span class="o">*</span><span class="p">)</span><span class="n">data</span> <span class="nl">threshold:</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">threshold</span> <span class="nl">numFrames:</span><span class="p">(</span><span class="n">UInt32</span><span class="p">)</span><span class="n">numFrames</span> <span class="nl">numChannels:</span><span class="p">(</span><span class="n">UInt32</span><span class="p">)</span><span class="n">numChannels</span><span class="p">;</span>
-</pre>
-</div>
+More examples can be found in <a href="https://github.com/bartolsthoorn/NVDSP/blob/master/README.md">the README on Github</a>
 
 
 <h3>A thing to note:</h3>
@@ -185,10 +81,10 @@
 
 <p>Alex Wiltschko - Creator of <a href="http://alexbw.github.com/novocaine/">Novocaine</a></p>
 
-<p>Yasoshima - Writer of <a href="http://objective-audio.jp/2008/02/biquad-filter.html">this article</a>, revealing how vDSP_deq22 works. (and google translate, I don't speak Japanese)</p>
+<p>Yasoshima - Writer of <a href="http://objective-audio.jp/2008/02/biquad-filter.html">this article</a>, revealing how vDSP_deq22 works.</p>
 
 <p>hrnt - Helpful on IRC #iphonedev (freenode)</p>
-      </section>
+</section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/bartolsthoorn">bartolsthoorn</a></p>
 				<p><a href="https://twitter.com/BartOlsthoorn" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @BartOlsthoorn</a>
