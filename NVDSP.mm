@@ -85,35 +85,28 @@
     free(tOutputBuffer);
 }
 
-- (void) filterData:(float *)data numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels {
-    //[self setCoefficients];
-    
+- (void)filterData:(float *)data numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels {
     switch (numChannels) {
-        case 2:
-        {
-            float *left = (float*) malloc((numFrames + 2) * sizeof(float));
-            float *right = (float*) malloc((numFrames + 2) * sizeof(float));
-            
+        case 1:
+            [self filterContiguousData:data numFrames:numFrames channel:0];
+            break;
+        case 2: {
+            float *left = (float *)malloc((numFrames + 2) * sizeof(float));
+            float *right = (float *)malloc((numFrames + 2) * sizeof(float));
+
             [self deinterleave:data left:left right:right length:numFrames];
             [self filterContiguousData:left numFrames:numFrames channel:0];
             [self filterContiguousData:right numFrames:numFrames channel:1];
             [self interleave:data left:left right:right length:numFrames];
-            
+
             free(left);
             free(right);
+
+            break;
         }
-        break;
-            
-        case 1:
-        {
-            [self filterContiguousData:data numFrames:numFrames channel:0];
-        }
-            
         default:
-        {
-            NSLog(@"Number of channels not supported.");
-        }
-        break;
+          NSLog(@"WARNING: Unsupported number of channels %lu", numChannels);
+          break;
     }
 }
 
