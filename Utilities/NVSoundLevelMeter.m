@@ -9,9 +9,12 @@
 #import "NVSoundLevelMeter.h"
 
 @implementation NVSoundLevelMeter
-- (id) init {
-    [super init];
-    dBLevel = 0.0f;
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        dBLevel = 0.0f;
+    }
     return self;
 }
 
