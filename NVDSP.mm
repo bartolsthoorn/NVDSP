@@ -13,39 +13,33 @@
 
 @implementation NVDSP
 
-- (id)init {
-    [super init];
-    return self;
-}
-
 - (id)initWithSamplingRate:(float)sr {
-    if ( self = [super init] )
-    {
+    if (self = [self init]) {
         samplingRate = sr;
-        
-        for(int i = 0; i < 5; i++) {
+
+        for (int i = 0; i < 5; i++) {
             coefficients[i] = 0.0f;
         }
-        
-        for(int i = 0; i < MAX_CHANNEL_COUNT; i++) {
-            gInputKeepBuffer[i] = (float*) calloc(2, sizeof(float));
-            gOutputKeepBuffer[i] = (float*) calloc(2, sizeof(float));
+
+        for (int i = 0; i < MAX_CHANNEL_COUNT; i++) {
+            gInputKeepBuffer[i] = (float *)calloc(2, sizeof(float));
+            gOutputKeepBuffer[i] = (float *)calloc(2, sizeof(float));
         }
-        
+
         zero = 0.0f;
         one = 1.0f;
     }
     return self;
 }
 
-- (void) dealloc
-{
-    [super dealloc];
-    
-    for(int i = 0; i < MAX_CHANNEL_COUNT; i++) {
+- (void)dealloc {
+    for (int i = 0; i < MAX_CHANNEL_COUNT; i++) {
         free(gInputKeepBuffer[i]);
         free(gOutputKeepBuffer[i]);
     }
+#if !__has_feature(objc_arc)
+    [super dealloc];
+#endif
 }
 
 #pragma mark - Setters
