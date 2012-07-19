@@ -3,7 +3,8 @@
 //  NVDSP
 //
 //  Created by Bart Olsthoorn on 23/05/2012.
-//  Copyright (c) 2012 Bart Olsthoorn. All rights reserved.
+//  Copyright (c) 2012 Bart Olsthoorn
+//  MIT licensed, see license.txt
 //
 
 #import "NVBandpassFilter.h"
