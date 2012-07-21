@@ -9,7 +9,7 @@
 
 #import "NVDSP.h"
 
-// There are two types of Bandpass filters, this is Peak gain = Q
+// There are two types of Bandpass filters, this is Peak gain = 0dB
 
 @interface NVBandpassFilter : NVDSP
 

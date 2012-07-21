@@ -1,17 +1,15 @@
 //
-//  NVBandpassQPeakGainFilter.h
+//  NVAllpassFilter.h
 //  NVDSP
 //
-//  Created by Bart Olsthoorn on 24/05/2012.
+//  Created by Bart Olsthoorn on 21/07/2012.
 //  Copyright (c) 2012 Bart Olsthoorn
 //  MIT licensed, see license.txt
 //
 
 #import "NVDSP.h"
 
-// There are two types of Bandpass filters, this is Peak gain = Q
-
-@interface NVBandpassQPeakGainFilter : NVDSP
+@interface NVAllpassFilter : NVDSP
 
 - (void) calculateCoefficients;
 
