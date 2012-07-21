@@ -2,6 +2,18 @@
 
 While Novocaine allows you to easily read/play audio, it is still quite hard to apply filters to the audio. This (Objective-C++) class will allow you to apply all sorts of filters (high-pass, band-pass, peaking EQ, shelving EQ etc.) in just a few lines of code.
 
+NVDSP comes with a wide variety of audio filters:
+
+	+ All Pass Filter (NVAllpassFilter)
+	+ Band Pass Filter, 0dB gain (NVBandpassFilter)
+	+ Band Pass Filter, Q gain (NVBandpassQPeakGainFilter)
+	+ High Pass Filter (NVHighpassFilter)
+	+ High Shelving Filter (NVHighShelvingFilter)
+	+ Low Shelving Filter (NVLowShelvingFilter)
+	+ Low Pass Filter (NVLowPassFilter)
+	+ Notch Filter (NVNotchFilter)
+	+ Peaking EQ Filter (NVPeakingEQFilter)
+
 ### Quick introduction/example (highpass filter)
 ``` objective-c
 // ... import Novocaine and audioFilerReader
