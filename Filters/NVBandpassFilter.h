@@ -7,7 +7,7 @@
 //  MIT licensed, see license.txt
 //
 
-#import "NVDSP.h"
+#import "../NVDSP.h"
 
 // There are two types of Bandpass filters, this is Peak gain = 0dB
 
