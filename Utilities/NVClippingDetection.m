@@ -34,7 +34,7 @@
     
     
     for (int i = 0; i < totalSamples; i++) {
-        float sampleValue = float(abs(float(data[i])));
+        float sampleValue = fabsf((float)data[i]);
         if (sampleValue >= threshold) {
             clippedSamples++;
         }
@@ -47,7 +47,7 @@
     float clippingValue = 0.0f;
     
     for (int i = 0; i < totalSamples; i++) {
-        float sampleValue = float(abs(float(data[i])));
+        float sampleValue = fabsf((float)data[i]);
         if (sampleValue > threshold) {
             if (sampleValue > clippingValue) {
                 clippingValue = sampleValue;
