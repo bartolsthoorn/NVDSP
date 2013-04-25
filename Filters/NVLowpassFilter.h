@@ -7,7 +7,7 @@
 //  MIT licensed, see license.txt
 //
 
-#import "../NVDSP.h"
+#import "NVDSP.h"
 
 @interface NVLowpassFilter : NVDSP
 

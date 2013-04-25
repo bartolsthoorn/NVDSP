@@ -14,8 +14,8 @@
 #import "AudioFileWriter.h"
 
 #import "NVDSP/NVDSP.h"
-#import "NVDSP/Filters/NVPeakingEQFilter.h"
-#import "NVDSP/Utilities/NVSoundLevelMeter.h"
+#import "NVDSP/NVPeakingEQFilter.h"
+#import "NVDSP/NVSoundLevelMeter.h"
 
 // init ringbuffer and novocaine
 ringBuffer = new RingBuffer(32768, 2); 
