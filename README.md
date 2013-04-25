@@ -135,6 +135,9 @@ NVClippingDetection *CDT = [[NVClippingDetection alloc] init];
 ### A thing to note: 
 The NVDSP class is written in C++, so the classes that use it will have to be Objective-C++. Change all the files that use NVDSP from MyClass.m to MyClass.mm.
 
+### TODO
+To complete NVDSP a Spectrum Analyser would be nice. Currently it only does filtering and basic dB calculations.
+
 ### Thanks to
 Alex Wiltschko - Creator of [Novocaine](http://alexbw.github.com/novocaine/)
 
