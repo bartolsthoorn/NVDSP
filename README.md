@@ -132,6 +132,9 @@ NVClippingDetection *CDT = [[NVClippingDetection alloc] init];
  - (float) getClippingSample:(float *)data numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels;
 ```
 
+### Example project
+See `/Examples/NVDSPExample` for a simple iOS XCodeProject example.
+
 ### A thing to note: 
 The NVDSP class is written in C++, so the classes that use it will have to be Objective-C++. Change all the files that use NVDSP from MyClass.m to MyClass.mm.
 

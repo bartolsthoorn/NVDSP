@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		807E5FE2172980CC00EF9F48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807E5FE1172980CC00EF9F48 /* UIKit.framework */; };
+		807E5FE4172980CC00EF9F48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807E5FE3172980CC00EF9F48 /* Foundation.framework */; };
+		807E5FE6172980CC00EF9F48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807E5FE5172980CC00EF9F48 /* CoreGraphics.framework */; };
+		807E5FEC172980CC00EF9F48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 807E5FEA172980CC00EF9F48 /* InfoPlist.strings */; };
+		807E5FEE172980CC00EF9F48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E5FED172980CC00EF9F48 /* main.m */; };
+		807E5FFB172980CC00EF9F48 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807E5FF9172980CC00EF9F48 /* MainStoryboard_iPhone.storyboard */; };
+		807E5FFE172980CC00EF9F48 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807E5FFC172980CC00EF9F48 /* MainStoryboard_iPad.storyboard */; };
+		807E6001172980CC00EF9F48 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 807E6000172980CC00EF9F48 /* ViewController.mm */; };
+		807E6010172AA38500EF9F48 /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 807E6009172AA38500EF9F48 /* AudioFileReader.mm */; };
+		807E6011172AA38500EF9F48 /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E600B172AA38500EF9F48 /* AudioFileWriter.m */; };
+		807E6012172AA38500EF9F48 /* Novocaine.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E600D172AA38500EF9F48 /* Novocaine.m */; };
+		807E6013172AA38500EF9F48 /* RingBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 807E600F172AA38500EF9F48 /* RingBuffer.mm */; };
+		807E6015172AAEF300EF9F48 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 807E6014172AAEF300EF9F48 /* AppDelegate.mm */; };
+		807E6017172AAFE200EF9F48 /* TLC.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 807E6016172AAFE200EF9F48 /* TLC.mp3 */; };
+		807E6019172AB0AC00EF9F48 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807E6018172AB0AC00EF9F48 /* CoreAudio.framework */; };
+		807E601B172AB0B500EF9F48 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807E601A172AB0B500EF9F48 /* AudioToolbox.framework */; };
+		807E601D172AB0CC00EF9F48 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807E601C172AB0CC00EF9F48 /* Accelerate.framework */; };
+		807E6023172AC18900EF9F48 /* NVDSP.mm in Sources */ = {isa = PBXBuildFile; fileRef = 807E601F172AC18900EF9F48 /* NVDSP.mm */; };
+		807E603E172AC22500EF9F48 /* NVClippingDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E6028172AC22500EF9F48 /* NVClippingDetection.m */; };
+		807E603F172AC22500EF9F48 /* NVSoundLevelMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E602A172AC22500EF9F48 /* NVSoundLevelMeter.m */; };
+		807E6040172AC22500EF9F48 /* NVAllpassFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E602D172AC22500EF9F48 /* NVAllpassFilter.m */; };
+		807E6041172AC22500EF9F48 /* NVBandpassFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E602F172AC22500EF9F48 /* NVBandpassFilter.m */; };
+		807E6042172AC22500EF9F48 /* NVBandpassQPeakGainFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E6031172AC22500EF9F48 /* NVBandpassQPeakGainFilter.m */; };
+		807E6043172AC22500EF9F48 /* NVHighpassFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E6033172AC22500EF9F48 /* NVHighpassFilter.m */; };
+		807E6044172AC22500EF9F48 /* NVHighShelvingFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E6035172AC22500EF9F48 /* NVHighShelvingFilter.m */; };
+		807E6045172AC22500EF9F48 /* NVLowpassFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E6037172AC22500EF9F48 /* NVLowpassFilter.m */; };
+		807E6046172AC22500EF9F48 /* NVLowShelvingFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E6039172AC22500EF9F48 /* NVLowShelvingFilter.m */; };
+		807E6047172AC22500EF9F48 /* NVNotchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E603B172AC22500EF9F48 /* NVNotchFilter.m */; };
+		807E6048172AC22500EF9F48 /* NVPeakingEQFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E603D172AC22500EF9F48 /* NVPeakingEQFilter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		807E5FDE172980CC00EF9F48 /* NVDSPExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NVDSPExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		807E5FE1172980CC00EF9F48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		807E5FE3172980CC00EF9F48 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		807E5FE5172980CC00EF9F48 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		807E5FE9172980CC00EF9F48 /* NVDSPExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NVDSPExample-Info.plist"; sourceTree = "<group>"; };
+		807E5FEB172980CC00EF9F48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		807E5FED172980CC00EF9F48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		807E5FEF172980CC00EF9F48 /* NVDSPExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NVDSPExample-Prefix.pch"; sourceTree = "<group>"; };
+		807E5FF0172980CC00EF9F48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		807E5FFA172980CC00EF9F48 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		807E5FFD172980CC00EF9F48 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		807E5FFF172980CC00EF9F48 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		807E6000172980CC00EF9F48 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		807E6008172AA38500EF9F48 /* AudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileReader.h; sourceTree = "<group>"; };
+		807E6009172AA38500EF9F48 /* AudioFileReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFileReader.mm; sourceTree = "<group>"; };
+		807E600A172AA38500EF9F48 /* AudioFileWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileWriter.h; sourceTree = "<group>"; };
+		807E600B172AA38500EF9F48 /* AudioFileWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioFileWriter.m; sourceTree = "<group>"; };
+		807E600C172AA38500EF9F48 /* Novocaine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Novocaine.h; sourceTree = "<group>"; };
+		807E600D172AA38500EF9F48 /* Novocaine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Novocaine.m; sourceTree = "<group>"; };
+		807E600E172AA38500EF9F48 /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
+		807E600F172AA38500EF9F48 /* RingBuffer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RingBuffer.mm; sourceTree = "<group>"; };
+		807E6014172AAEF300EF9F48 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		807E6016172AAFE200EF9F48 /* TLC.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TLC.mp3; sourceTree = "<group>"; };
+		807E6018172AB0AC00EF9F48 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		807E601A172AB0B500EF9F48 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		807E601C172AB0CC00EF9F48 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		807E601F172AC18900EF9F48 /* NVDSP.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NVDSP.mm; path = ../../NVDSP.mm; sourceTree = "<group>"; };
+		807E6020172AC18900EF9F48 /* NVDSP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NVDSP.h; path = ../../NVDSP.h; sourceTree = "<group>"; };
+		807E6027172AC22500EF9F48 /* NVClippingDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVClippingDetection.h; sourceTree = "<group>"; };
+		807E6028172AC22500EF9F48 /* NVClippingDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVClippingDetection.m; sourceTree = "<group>"; };
+		807E6029172AC22500EF9F48 /* NVSoundLevelMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVSoundLevelMeter.h; sourceTree = "<group>"; };
+		807E602A172AC22500EF9F48 /* NVSoundLevelMeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVSoundLevelMeter.m; sourceTree = "<group>"; };
+		807E602C172AC22500EF9F48 /* NVAllpassFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVAllpassFilter.h; sourceTree = "<group>"; };
+		807E602D172AC22500EF9F48 /* NVAllpassFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVAllpassFilter.m; sourceTree = "<group>"; };
+		807E602E172AC22500EF9F48 /* NVBandpassFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVBandpassFilter.h; sourceTree = "<group>"; };
+		807E602F172AC22500EF9F48 /* NVBandpassFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVBandpassFilter.m; sourceTree = "<group>"; };
+		807E6030172AC22500EF9F48 /* NVBandpassQPeakGainFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVBandpassQPeakGainFilter.h; sourceTree = "<group>"; };
+		807E6031172AC22500EF9F48 /* NVBandpassQPeakGainFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVBandpassQPeakGainFilter.m; sourceTree = "<group>"; };
+		807E6032172AC22500EF9F48 /* NVHighpassFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVHighpassFilter.h; sourceTree = "<group>"; };
+		807E6033172AC22500EF9F48 /* NVHighpassFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVHighpassFilter.m; sourceTree = "<group>"; };
+		807E6034172AC22500EF9F48 /* NVHighShelvingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVHighShelvingFilter.h; sourceTree = "<group>"; };
+		807E6035172AC22500EF9F48 /* NVHighShelvingFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVHighShelvingFilter.m; sourceTree = "<group>"; };
+		807E6036172AC22500EF9F48 /* NVLowpassFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVLowpassFilter.h; sourceTree = "<group>"; };
+		807E6037172AC22500EF9F48 /* NVLowpassFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVLowpassFilter.m; sourceTree = "<group>"; };
+		807E6038172AC22500EF9F48 /* NVLowShelvingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVLowShelvingFilter.h; sourceTree = "<group>"; };
+		807E6039172AC22500EF9F48 /* NVLowShelvingFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVLowShelvingFilter.m; sourceTree = "<group>"; };
+		807E603A172AC22500EF9F48 /* NVNotchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVNotchFilter.h; sourceTree = "<group>"; };
+		807E603B172AC22500EF9F48 /* NVNotchFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVNotchFilter.m; sourceTree = "<group>"; };
+		807E603C172AC22500EF9F48 /* NVPeakingEQFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVPeakingEQFilter.h; sourceTree = "<group>"; };
+		807E603D172AC22500EF9F48 /* NVPeakingEQFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPeakingEQFilter.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		807E5FDB172980CB00EF9F48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				807E601D172AB0CC00EF9F48 /* Accelerate.framework in Frameworks */,
+				807E601B172AB0B500EF9F48 /* AudioToolbox.framework in Frameworks */,
+				807E6019172AB0AC00EF9F48 /* CoreAudio.framework in Frameworks */,
+				807E5FE2172980CC00EF9F48 /* UIKit.framework in Frameworks */,
+				807E5FE4172980CC00EF9F48 /* Foundation.framework in Frameworks */,
+				807E5FE6172980CC00EF9F48 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		807E5FD5172980CB00EF9F48 = {
+			isa = PBXGroup;
+			children = (
+				807E6025172AC19500EF9F48 /* NVDSP */,
+				807E601C172AB0CC00EF9F48 /* Accelerate.framework */,
+				807E601A172AB0B500EF9F48 /* AudioToolbox.framework */,
+				807E6018172AB0AC00EF9F48 /* CoreAudio.framework */,
+				807E6007172AA38500EF9F48 /* Novocaine */,
+				807E5FE7172980CC00EF9F48 /* NVDSPExample */,
+				807E5FE0172980CC00EF9F48 /* Frameworks */,
+				807E5FDF172980CC00EF9F48 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		807E5FDF172980CC00EF9F48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				807E5FDE172980CC00EF9F48 /* NVDSPExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		807E5FE0172980CC00EF9F48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				807E5FE1172980CC00EF9F48 /* UIKit.framework */,
+				807E5FE3172980CC00EF9F48 /* Foundation.framework */,
+				807E5FE5172980CC00EF9F48 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		807E5FE7172980CC00EF9F48 /* NVDSPExample */ = {
+			isa = PBXGroup;
+			children = (
+				807E6014172AAEF300EF9F48 /* AppDelegate.mm */,
+				807E5FF0172980CC00EF9F48 /* AppDelegate.h */,
+				807E5FF9172980CC00EF9F48 /* MainStoryboard_iPhone.storyboard */,
+				807E5FFC172980CC00EF9F48 /* MainStoryboard_iPad.storyboard */,
+				807E5FFF172980CC00EF9F48 /* ViewController.h */,
+				807E6000172980CC00EF9F48 /* ViewController.mm */,
+				807E5FE8172980CC00EF9F48 /* Supporting Files */,
+			);
+			path = NVDSPExample;
+			sourceTree = "<group>";
+		};
+		807E5FE8172980CC00EF9F48 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				807E6016172AAFE200EF9F48 /* TLC.mp3 */,
+				807E5FE9172980CC00EF9F48 /* NVDSPExample-Info.plist */,
+				807E5FEA172980CC00EF9F48 /* InfoPlist.strings */,
+				807E5FED172980CC00EF9F48 /* main.m */,
+				807E5FEF172980CC00EF9F48 /* NVDSPExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		807E6007172AA38500EF9F48 /* Novocaine */ = {
+			isa = PBXGroup;
+			children = (
+				807E6008172AA38500EF9F48 /* AudioFileReader.h */,
+				807E6009172AA38500EF9F48 /* AudioFileReader.mm */,
+				807E600A172AA38500EF9F48 /* AudioFileWriter.h */,
+				807E600B172AA38500EF9F48 /* AudioFileWriter.m */,
+				807E600C172AA38500EF9F48 /* Novocaine.h */,
+				807E600D172AA38500EF9F48 /* Novocaine.m */,
+				807E600E172AA38500EF9F48 /* RingBuffer.h */,
+				807E600F172AA38500EF9F48 /* RingBuffer.mm */,
+			);
+			path = Novocaine;
+			sourceTree = "<group>";
+		};
+		807E6025172AC19500EF9F48 /* NVDSP */ = {
+			isa = PBXGroup;
+			children = (
+				807E6026172AC22500EF9F48 /* Utilities */,
+				807E602B172AC22500EF9F48 /* Filters */,
+				807E601F172AC18900EF9F48 /* NVDSP.mm */,
+				807E6020172AC18900EF9F48 /* NVDSP.h */,
+			);
+			name = NVDSP;
+			sourceTree = "<group>";
+		};
+		807E6026172AC22500EF9F48 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				807E6027172AC22500EF9F48 /* NVClippingDetection.h */,
+				807E6028172AC22500EF9F48 /* NVClippingDetection.m */,
+				807E6029172AC22500EF9F48 /* NVSoundLevelMeter.h */,
+				807E602A172AC22500EF9F48 /* NVSoundLevelMeter.m */,
+			);
+			name = Utilities;
+			path = ../../Utilities;
+			sourceTree = "<group>";
+		};
+		807E602B172AC22500EF9F48 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				807E602C172AC22500EF9F48 /* NVAllpassFilter.h */,
+				807E602D172AC22500EF9F48 /* NVAllpassFilter.m */,
+				807E602E172AC22500EF9F48 /* NVBandpassFilter.h */,
+				807E602F172AC22500EF9F48 /* NVBandpassFilter.m */,
+				807E6030172AC22500EF9F48 /* NVBandpassQPeakGainFilter.h */,
+				807E6031172AC22500EF9F48 /* NVBandpassQPeakGainFilter.m */,
+				807E6032172AC22500EF9F48 /* NVHighpassFilter.h */,
+				807E6033172AC22500EF9F48 /* NVHighpassFilter.m */,
+				807E6034172AC22500EF9F48 /* NVHighShelvingFilter.h */,
+				807E6035172AC22500EF9F48 /* NVHighShelvingFilter.m */,
+				807E6036172AC22500EF9F48 /* NVLowpassFilter.h */,
+				807E6037172AC22500EF9F48 /* NVLowpassFilter.m */,
+				807E6038172AC22500EF9F48 /* NVLowShelvingFilter.h */,
+				807E6039172AC22500EF9F48 /* NVLowShelvingFilter.m */,
+				807E603A172AC22500EF9F48 /* NVNotchFilter.h */,
+				807E603B172AC22500EF9F48 /* NVNotchFilter.m */,
+				807E603C172AC22500EF9F48 /* NVPeakingEQFilter.h */,
+				807E603D172AC22500EF9F48 /* NVPeakingEQFilter.m */,
+			);
+			name = Filters;
+			path = ../../Filters;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		807E5FDD172980CB00EF9F48 /* NVDSPExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 807E6004172980CC00EF9F48 /* Build configuration list for PBXNativeTarget "NVDSPExample" */;
+			buildPhases = (
+				807E5FDA172980CB00EF9F48 /* Sources */,
+				807E5FDB172980CB00EF9F48 /* Frameworks */,
+				807E5FDC172980CB00EF9F48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NVDSPExample;
+			productName = NVDSPExample;
+			productReference = 807E5FDE172980CC00EF9F48 /* NVDSPExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		807E5FD6172980CB00EF9F48 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Bart Olsthoorn";
+			};
+			buildConfigurationList = 807E5FD9172980CB00EF9F48 /* Build configuration list for PBXProject "NVDSPExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 807E5FD5172980CB00EF9F48;
+			productRefGroup = 807E5FDF172980CC00EF9F48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				807E5FDD172980CB00EF9F48 /* NVDSPExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		807E5FDC172980CB00EF9F48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				807E5FEC172980CC00EF9F48 /* InfoPlist.strings in Resources */,
+				807E5FFB172980CC00EF9F48 /* MainStoryboard_iPhone.storyboard in Resources */,
+				807E5FFE172980CC00EF9F48 /* MainStoryboard_iPad.storyboard in Resources */,
+				807E6017172AAFE200EF9F48 /* TLC.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		807E5FDA172980CB00EF9F48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				807E5FEE172980CC00EF9F48 /* main.m in Sources */,
+				807E6001172980CC00EF9F48 /* ViewController.mm in Sources */,
+				807E6010172AA38500EF9F48 /* AudioFileReader.mm in Sources */,
+				807E6011172AA38500EF9F48 /* AudioFileWriter.m in Sources */,
+				807E6012172AA38500EF9F48 /* Novocaine.m in Sources */,
+				807E6013172AA38500EF9F48 /* RingBuffer.mm in Sources */,
+				807E6015172AAEF300EF9F48 /* AppDelegate.mm in Sources */,
+				807E6023172AC18900EF9F48 /* NVDSP.mm in Sources */,
+				807E603E172AC22500EF9F48 /* NVClippingDetection.m in Sources */,
+				807E603F172AC22500EF9F48 /* NVSoundLevelMeter.m in Sources */,
+				807E6040172AC22500EF9F48 /* NVAllpassFilter.m in Sources */,
+				807E6041172AC22500EF9F48 /* NVBandpassFilter.m in Sources */,
+				807E6042172AC22500EF9F48 /* NVBandpassQPeakGainFilter.m in Sources */,
+				807E6043172AC22500EF9F48 /* NVHighpassFilter.m in Sources */,
+				807E6044172AC22500EF9F48 /* NVHighShelvingFilter.m in Sources */,
+				807E6045172AC22500EF9F48 /* NVLowpassFilter.m in Sources */,
+				807E6046172AC22500EF9F48 /* NVLowShelvingFilter.m in Sources */,
+				807E6047172AC22500EF9F48 /* NVNotchFilter.m in Sources */,
+				807E6048172AC22500EF9F48 /* NVPeakingEQFilter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		807E5FEA172980CC00EF9F48 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				807E5FEB172980CC00EF9F48 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		807E5FF9172980CC00EF9F48 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				807E5FFA172980CC00EF9F48 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		807E5FFC172980CC00EF9F48 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				807E5FFD172980CC00EF9F48 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		807E6002172980CC00EF9F48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		807E6003172980CC00EF9F48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		807E6005172980CC00EF9F48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NVDSPExample/NVDSPExample-Prefix.pch";
+				INFOPLIST_FILE = "NVDSPExample/NVDSPExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		807E6006172980CC00EF9F48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NVDSPExample/NVDSPExample-Prefix.pch";
+				INFOPLIST_FILE = "NVDSPExample/NVDSPExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		807E5FD9172980CB00EF9F48 /* Build configuration list for PBXProject "NVDSPExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				807E6002172980CC00EF9F48 /* Debug */,
+				807E6003172980CC00EF9F48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		807E6004172980CC00EF9F48 /* Build configuration list for PBXNativeTarget "NVDSPExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				807E6005172980CC00EF9F48 /* Debug */,
+				807E6006172980CC00EF9F48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 807E5FD6172980CB00EF9F48 /* Project object */;
+}
