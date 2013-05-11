@@ -1,4 +1,4 @@
-## High-performance DSP for audio on iOS and OSX with Novocaine.
+## High-performance Audio Filters on iOS and OSX with Novocaine.
 
 While Novocaine allows you to easily read/play audio, it is still quite hard to apply filters to the audio. This (Objective-C++) class will allow you to apply all sorts of filters (high-pass, band-pass, peaking EQ, shelving EQ etc.) in just a few lines of code.
 
@@ -135,11 +135,11 @@ NVClippingDetection *CDT = [[NVClippingDetection alloc] init];
 ### Example project
 See `/Examples/NVDSPExample` for a simple iOS XCodeProject example.
 
-### A thing to note: 
+### A thing to note
 The NVDSP class is written in C++, so the classes that use it will have to be Objective-C++. Change all the files that use NVDSP from MyClass.m to MyClass.mm.
 
-### TODO
-To complete NVDSP a Spectrum Analyser would be nice. Currently it only does filtering and basic dB calculations.
+### Interested in the story behind this project?
+Check [this post at Medium](https://medium.com/what-i-learned-building/1964521efbc7)
 
 ### Thanks to
 Alex Wiltschko - Creator of [Novocaine](http://alexbw.github.com/novocaine/)
