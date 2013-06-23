@@ -138,6 +138,11 @@ See `/Examples/NVDSPExample` for a simple iOS XCodeProject example.
 ### A thing to note
 The NVDSP class is written in C++, so the classes that use it will have to be Objective-C++. Change all the files that use NVDSP from MyClass.m to MyClass.mm.
 
+### NVDSP powered apps in the wild
+[iHearYou](https://itunes.apple.com/us/app/ihearyou/id634880747)
+[Swarmy](http://jmoore.me/swarmy/)
+Send a pull request and add your app to this list!
+
 ### Interested in the story behind this project?
 Check [this post at Medium](https://medium.com/what-i-learned-building/1964521efbc7)
 
