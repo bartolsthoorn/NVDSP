@@ -1,6 +1,6 @@
-## High-performance Audio Filters on iOS and OSX with Novocaine.
+## Audio Filters on iOS and OSX
 
-While Novocaine allows you to easily read/play audio, it is still quite hard to apply filters to the audio. This (Objective-C++) class will allow you to apply all sorts of filters (high-pass, band-pass, peaking EQ, shelving EQ etc.) in just a few lines of code.
+While [Novocaine](https://github.com/alexbw/novocaine) allows you to easily read/play audio, it is still quite hard to apply filters to the audio. This (Objective-C++) class will allow you to apply all sorts of filters (high-pass, band-pass, peaking EQ, shelving EQ etc.) in just a few lines of code.
 
 NVDSP comes with a wide variety of audio filters:
 
