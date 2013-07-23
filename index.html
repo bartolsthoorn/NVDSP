@@ -3,34 +3,38 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
     <title>NVDSP by bartolsthoorn</title>
   </head>
 
   <body>
-    <header>
+    <div id="container">
       <div class="inner">
-        <h1>NVDSP</h1>
-        <h2>iOS/OSX DSP for audio (Novocaine)</h2>
-        <a href="https://github.com/bartolsthoorn/NVDSP" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h2>High-performance Audio Filters on iOS and OSX with Novocaine.</h2>
+        <header>
+          <h1>NVDSP</h1>
+          <h2>iOS/OSX DSP for audio (Novocaine)</h2>
+        </header>
 
-<p>While Novocaine allows you to easily read/play audio, it is still quite hard to apply filters to the audio. This (Objective-C++) class will allow you to apply all sorts of filters (high-pass, band-pass, peaking EQ, shelving EQ etc.) in just a few lines of code.</p>
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/bartolsthoorn/NVDSP/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/bartolsthoorn/NVDSP/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/bartolsthoorn/NVDSP" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h2>
+<a name="audio-filters-on-ios-and-osx" class="anchor" href="#audio-filters-on-ios-and-osx"><span class="octicon octicon-link"></span></a>Audio Filters on iOS and OSX</h2>
+
+<p>While <a href="https://github.com/alexbw/novocaine">Novocaine</a> allows you to easily read/play audio, it is still quite hard to apply filters to the audio. This (Objective-C++) class will allow you to apply all sorts of filters (high-pass, band-pass, peaking EQ, shelving EQ etc.) in just a few lines of code.</p>
 
 <p>NVDSP comes with a wide variety of audio filters:</p>
 
@@ -44,7 +48,8 @@
 <li>Low Pass Filter (NVLowPassFilter)</li>
 <li>Notch Filter (NVNotchFilter)</li>
 <li>Peaking EQ Filter (NVPeakingEQFilter)</li>
-</ul><h3>Quick introduction/example (highpass filter)</h3>
+</ul><h3>
+<a name="quick-introductionexample-highpass-filter" class="anchor" href="#quick-introductionexample-highpass-filter"><span class="octicon octicon-link"></span></a>Quick introduction/example (highpass filter)</h3>
 
 <div class="highlight"><pre><span class="c1">// ... import Novocaine and audioFilerReader</span>
 <span class="cp">#import "NVDSP/NVDSP.h"</span>
@@ -78,9 +83,11 @@
 <span class="p">}];</span>
 </pre></div>
 
-<h3>More examples</h3>
+<h3>
+<a name="more-examples" class="anchor" href="#more-examples"><span class="octicon octicon-link"></span></a>More examples</h3>
 
-<h4>Peaking EQ filter</h4>
+<h4>
+<a name="peaking-eq-filter" class="anchor" href="#peaking-eq-filter"><span class="octicon octicon-link"></span></a>Peaking EQ filter</h4>
 
 <div class="highlight"><pre><span class="n">NVPeakingEQFilter</span> <span class="o">*</span><span class="n">PEF</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NVPeakingEQFilter</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithSamplingRate</span><span class="o">:</span><span class="n">audioManager</span><span class="p">.</span><span class="n">samplingRate</span><span class="p">];</span>
 <span class="n">PEF</span><span class="p">.</span><span class="n">centerFrequency</span> <span class="o">=</span> <span class="mf">1000.0f</span><span class="p">;</span>
@@ -89,7 +96,8 @@
 <span class="p">[</span><span class="n">PEF</span> <span class="n">filterData</span><span class="o">:</span><span class="n">data</span> <span class="n">numFrames</span><span class="o">:</span><span class="n">numFrames</span> <span class="n">numChannels</span><span class="o">:</span><span class="n">numChannels</span><span class="p">];</span>
 </pre></div>
 
-<h4>Lowpass filter</h4>
+<h4>
+<a name="lowpass-filter" class="anchor" href="#lowpass-filter"><span class="octicon octicon-link"></span></a>Lowpass filter</h4>
 
 <div class="highlight"><pre><span class="c1">// import Novocaine.h and NVDSP.h</span>
 <span class="cp">#import "NVDSP/Filter/NVLowpassFilter.h"</span>
@@ -99,7 +107,8 @@
 <span class="p">[</span><span class="n">LPF</span> <span class="n">filterData</span><span class="o">:</span><span class="n">data</span> <span class="n">numFrames</span><span class="o">:</span><span class="n">numFrames</span> <span class="n">numChannels</span><span class="o">:</span><span class="n">numChannels</span><span class="p">];</span>
 </pre></div>
 
-<h4>Notch filter</h4>
+<h4>
+<a name="notch-filter" class="anchor" href="#notch-filter"><span class="octicon octicon-link"></span></a>Notch filter</h4>
 
 <div class="highlight"><pre><span class="c1">// import Novocaine.h and NVDSP.h</span>
 <span class="cp">#import "NVDSP/Filter/NVNotchFilter.h"</span>
@@ -109,7 +118,8 @@
 <span class="p">[</span><span class="n">NF</span> <span class="n">filterData</span><span class="o">:</span><span class="n">data</span> <span class="n">numFrames</span><span class="o">:</span><span class="n">numFrames</span> <span class="n">numChannels</span><span class="o">:</span><span class="n">numChannels</span><span class="p">];</span>
 </pre></div>
 
-<h4>Bandpass filter</h4>
+<h4>
+<a name="bandpass-filter" class="anchor" href="#bandpass-filter"><span class="octicon octicon-link"></span></a>Bandpass filter</h4>
 
 <p>There are two types of bandpass filters:</p>
 
@@ -125,7 +135,8 @@
 <span class="p">[</span><span class="n">BPF</span> <span class="n">filterData</span><span class="o">:</span><span class="n">data</span> <span class="n">numFrames</span><span class="o">:</span><span class="n">numFrames</span> <span class="n">numChannels</span><span class="o">:</span><span class="n">numChannels</span><span class="p">];</span>
 </pre></div>
 
-<h4>Measure dB level (ranging from -51.0f to 0.0f)</h4>
+<h4>
+<a name="measure-db-level-ranging-from--510f-to-00f" class="anchor" href="#measure-db-level-ranging-from--510f-to-00f"><span class="octicon octicon-link"></span></a>Measure dB level (ranging from -51.0f to 0.0f)</h4>
 
 <div class="highlight"><pre><span class="c1">// import Novocaine.h and NVDSP.h</span>
 <span class="cp">#import "NVDSP/Utilities/NVSoundLevelMeter.h"</span>
@@ -137,7 +148,8 @@
 <span class="c1">// You call this inside the input or outputBlock: [audioManager setOutputBlock:^...</span>
 </pre></div>
 
-<h4>Applying overall gain.</h4>
+<h4>
+<a name="applying-overall-gain" class="anchor" href="#applying-overall-gain"><span class="octicon octicon-link"></span></a>Applying overall gain.</h4>
 
 <p>All sample values (typically -1.0f .. 1.0f when not clipping) are multiplied by the gain value.</p>
 
@@ -146,7 +158,8 @@
 <span class="p">[</span><span class="n">generalDSP</span> <span class="n">applyGain</span><span class="o">:</span><span class="n">outData</span> <span class="n">length</span><span class="o">:</span><span class="n">numFrames</span><span class="o">*</span><span class="n">numChannels</span> <span class="n">gain</span><span class="o">:</span><span class="mf">0.8</span><span class="p">];</span>
 </pre></div>
 
-<h3>Clipping</h3>
+<h3>
+<a name="clipping" class="anchor" href="#clipping"><span class="octicon octicon-link"></span></a>Clipping</h3>
 
 <p>Multiple peaking EQs with high gains can cause clipping. Clipping is basically sample data that exceeds the maximum or minimum value of 1.0f or -1.0f respectively. Clipping will cause really loud and dirty noises, like a bad overdrive effect. You can use the method <code>counterClipping</code> to prevent clipping (it will reduce the sound level).</p>
 
@@ -165,19 +178,30 @@
  <span class="o">-</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="n">getClippingSample</span><span class="o">:</span><span class="p">(</span><span class="kt">float</span> <span class="o">*</span><span class="p">)</span><span class="n">data</span> <span class="n">numFrames</span><span class="o">:</span><span class="p">(</span><span class="n">UInt32</span><span class="p">)</span><span class="n">numFrames</span> <span class="n">numChannels</span><span class="o">:</span><span class="p">(</span><span class="n">UInt32</span><span class="p">)</span><span class="n">numChannels</span><span class="p">;</span>
 </pre></div>
 
-<h3>Example project</h3>
+<h3>
+<a name="example-project" class="anchor" href="#example-project"><span class="octicon octicon-link"></span></a>Example project</h3>
 
 <p>See <code>/Examples/NVDSPExample</code> for a simple iOS XCodeProject example.</p>
 
-<h3>A thing to note</h3>
+<h3>
+<a name="a-thing-to-note" class="anchor" href="#a-thing-to-note"><span class="octicon octicon-link"></span></a>A thing to note</h3>
 
 <p>The NVDSP class is written in C++, so the classes that use it will have to be Objective-C++. Change all the files that use NVDSP from MyClass.m to MyClass.mm.</p>
 
-<h3>Interested in the story behind this project?</h3>
+<h3>
+<a name="nvdsp-powered-apps-in-the-wild" class="anchor" href="#nvdsp-powered-apps-in-the-wild"><span class="octicon octicon-link"></span></a>NVDSP powered apps in the wild</h3>
+
+<p><a href="https://itunes.apple.com/us/app/ihearyou/id634880747">iHearYou</a>
+<a href="http://jmoore.me/swarmy/">Swarmy</a>
+Send a pull request and add your app to this list!</p>
+
+<h3>
+<a name="interested-in-the-story-behind-this-project" class="anchor" href="#interested-in-the-story-behind-this-project"><span class="octicon octicon-link"></span></a>Interested in the story behind this project?</h3>
 
 <p>Check <a href="https://medium.com/what-i-learned-building/1964521efbc7">this post at Medium</a></p>
 
-<h3>Thanks to</h3>
+<h3>
+<a name="thanks-to" class="anchor" href="#thanks-to"><span class="octicon octicon-link"></span></a>Thanks to</h3>
 
 <p>Alex Wiltschko - Creator of <a href="http://alexbw.github.com/novocaine/">Novocaine</a></p>
 
@@ -186,24 +210,12 @@
 <p>hrnt - Helpful on IRC #iphonedev (freenode)</p>
         </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/bartolsthoorn/NVDSP/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/bartolsthoorn/NVDSP/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+        <footer>
+          NVDSP is maintained by <a href="https://github.com/bartolsthoorn">bartolsthoorn</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
 
-          <p class="repo-owner"><a href="https://github.com/bartolsthoorn/NVDSP"></a> is maintained by <a href="https://github.com/bartolsthoorn">bartolsthoorn</a>.</p>
-
-          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
-
-            <script type="text/javascript">
+                  <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -214,5 +226,7 @@
             } catch(err) {}
           </script>
 
+      </div>
+    </div>
   </body>
 </html>
