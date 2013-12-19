@@ -14,7 +14,8 @@ NVDSP comes with a wide variety of audio filters:
 + Notch Filter (NVNotchFilter)
 + Peaking EQ Filter (NVPeakingEQFilter)
 
-### Quick introduction/example (highpass filter)
+### Combining it with Novocaine (highpass filter)
+To start out I recommend you to get a fresh copy of [Novocaine](https://github.com/alexbw/novocaine) and open Novocaine's excellent example project. Then import NVDSP and the Filters folder and start your filtering journey.
 ``` objective-c
 // ... import Novocaine and audioFilerReader
 #import "NVDSP/NVDSP.h"
@@ -133,7 +134,7 @@ NVClippingDetection *CDT = [[NVClippingDetection alloc] init];
 ```
 
 ### Example project
-See `/Examples/NVDSPExample` for a simple iOS XCodeProject example.
+See `/Examples/NVDSPExample` for a simple iOS XCodeProject example. Please note the Novocaine bundled with it might be outdated.
 
 ### A thing to note
 The NVDSP class is written in C++, so the classes that use it will have to be Objective-C++. Change all the files that use NVDSP from MyClass.m to MyClass.mm.
