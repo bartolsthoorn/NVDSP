@@ -1,4 +1,4 @@
- Copyright (c) 2012  Bart Olsthoorn, website: bartolsthoorn.nl
+ Copyright (c) 2012 - 2014  Bart Olsthoorn, website: bartolsthoorn.nl
 
  Permission is hereby granted, free of charge, to any person
  obtaining a copy of this software and associated documentation

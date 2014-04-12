@@ -3,7 +3,7 @@
 //  NVDSP
 //
 //  Created by Bart Olsthoorn on 13/05/2012.
-//  Copyright (c) 2012 Bart Olsthoorn
+//  Copyright (c) 2012 - 2014 Bart Olsthoorn
 //  MIT licensed, see license.txt
 //  http://bartolsthoorn.nl
 //
@@ -106,7 +106,7 @@
             break;
         }
         default:
-          NSLog(@"WARNING: Unsupported number of channels %lu", numChannels);
+          NSLog(@"WARNING: Unsupported number of channels %u", (unsigned int)numChannels);
           break;
     }
 }
@@ -121,6 +121,15 @@
 - (void) interleave: (float *)data left: (float*) left right: (float*) right length: (vDSP_Length)length {
     vDSP_vsadd(left, 1, &zero, data, 2, length);   
     vDSP_vsadd(right, 1, &zero, data+1, 2, length); 
+}
+
+- (void) mono: (float *)data left: (float*) left right: (float*) right length: (vDSP_Length)length {
+    [self applyGain:left length:length gain:0.5];
+    [self applyGain:right length:length gain:0.5];
+    
+    vDSP_vadd(left, 1, right, 1, left, 1, length);
+    
+    [self interleave:data left:left right:left length:length];
 }
 
 - (void) intermediateVariables: (float)Fc Q: (float)Q {

@@ -3,7 +3,7 @@
 //  NVDSP
 //
 //  Created by Bart Olsthoorn on 13/05/2012.
-//  Copyright (c) 2012 Bart Olsthoorn
+//  Copyright (c) 2012 - 2014 Bart Olsthoorn
 //  MIT licensed, see license.txt
 //
 
@@ -42,6 +42,7 @@
 - (void) intermediateVariables: (float)Fc Q: (float)Q;
 - (void) deinterleave: (float *)data left: (float*) left right: (float*) right length: (vDSP_Length)length;
 - (void) interleave: (float *)data left: (float*) left right: (float*) right length: (vDSP_Length)length;
+- (void) mono: (float *)data left: (float*) left right: (float*) right length: (vDSP_Length)length;
 
 #pragma mark - Debug
 - (void) logCoefficients;

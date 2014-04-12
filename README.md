@@ -114,6 +114,22 @@ NVDSP *generalDSP = [[NVDSP alloc] init];
 [generalDSP applyGain:outData length:numFrames*numChannels gain:0.8];
 ```
 
+#### Convert stereo (left/right) to mono
+This converts a left and right buffer into a mono signal. It takes the average of the samples.
+```objective-c
+// Deinterleave stereo buffer into seperate left and right
+float *left = (float *)malloc((numFrames + 2) * sizeof(float));
+float *right = (float *)malloc((numFrames + 2) * sizeof(float));
+[generalDSP deinterleave:data left:left right:right length:numFrames];
+
+// Convert left and right to a mono 2 channel buffer
+[generalDSP mono:data left:left right:right length:numFrames];
+
+// Free buffers
+free(left);
+free(right);
+```
+
 ### Clipping
 Multiple peaking EQs with high gains can cause clipping. Clipping is basically sample data that exceeds the maximum or minimum value of 1.0f or -1.0f respectively. Clipping will cause really loud and dirty noises, like a bad overdrive effect. You can use the method `counterClipping` to prevent clipping (it will reduce the sound level).
 
