@@ -1,6 +1,7 @@
 ## Audio Filters on iOS and OSX
+[![DOI](https://zenodo.org/badge/6288/bartolsthoorn/NVDSP.png)](http://dx.doi.org/10.5281/zenodo.12415)
 
-While [Novocaine](https://github.com/alexbw/novocaine) allows you to easily read/play audio, it is still quite hard to apply filters to the audio. This (Objective-C++) class will allow you to apply all sorts of filters (high-pass, band-pass, peaking EQ, shelving EQ etc.) in just a few lines of code.
+Implement high quality audio filters with just a few lines of code and [Novocaine](https://github.com/alexbw/novocaine), or your own audio library of choice.
 
 NVDSP comes with a wide variety of audio filters:
 
@@ -48,6 +49,7 @@ HPF.Q = 0.5f;
     [HPF filterData:outData numFrames:numFrames numChannels:numChannels];
 }];
 ```
+Note that NVDSP works with raw audio buffers, so it can also work with other libraries instead of Novocaine.
 
 ### More examples
 #### Peaking EQ filter
