@@ -18,7 +18,7 @@ NVDSP comes with a wide variety of audio filters:
 ### Combining it with Novocaine (highpass filter)
 To start out I recommend you to get a fresh copy of [Novocaine](https://github.com/alexbw/novocaine) and open Novocaine's excellent example project. Then import NVDSP and the Filters folder and start your filtering journey.
 ``` objective-c
-// ... import Novocaine and audioFilerReader
+// ... import Novocaine here ... 
 #import "NVDSP/NVDSP.h"
 #import "NVDSP/Filters/NVHighpassFilter.h"
 
