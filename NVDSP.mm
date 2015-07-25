@@ -66,8 +66,8 @@
 - (void) filterContiguousData: (float *)data numFrames:(UInt32)numFrames channel:(UInt32)channel {
     
     // Provide buffer for processing
-    float *tInputBuffer = (float*) malloc((numFrames + 2) * sizeof(float));
-    float *tOutputBuffer = (float*) malloc((numFrames + 2) * sizeof(float));
+    float tInputBuffer[numFrames + 2];
+    float tOutputBuffer[numFrames + 2];
     
     // Copy the data
     memcpy(tInputBuffer, gInputKeepBuffer[channel], 2 * sizeof(float));
@@ -81,9 +81,6 @@
     memcpy(data, tOutputBuffer, numFrames * sizeof(float));
     memcpy(gInputKeepBuffer[channel], &(tInputBuffer[numFrames]), 2 * sizeof(float));
     memcpy(gOutputKeepBuffer[channel], &(tOutputBuffer[numFrames]), 2 * sizeof(float));
-    
-    free(tInputBuffer);
-    free(tOutputBuffer);
 }
 
 - (void)filterData:(float *)data numFrames:(UInt32)numFrames numChannels:(UInt32)numChannels {
@@ -92,16 +89,13 @@
             [self filterContiguousData:data numFrames:numFrames channel:0];
             break;
         case 2: {
-            float *left = (float *)malloc((numFrames + 2) * sizeof(float));
-            float *right = (float *)malloc((numFrames + 2) * sizeof(float));
+            float left[numFrames + 2];
+            float right[numFrames + 2];
 
             [self deinterleave:data left:left right:right length:numFrames];
             [self filterContiguousData:left numFrames:numFrames channel:0];
             [self filterContiguousData:right numFrames:numFrames channel:1];
             [self interleave:data left:left right:right length:numFrames];
-
-            free(left);
-            free(right);
 
             break;
         }
