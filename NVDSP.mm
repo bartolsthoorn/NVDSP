@@ -78,7 +78,7 @@
     vDSP_deq22(tInputBuffer, 1, coefficients, tOutputBuffer, 1, numFrames);
     
     // Copy the data
-    memcpy(data, tOutputBuffer, numFrames * sizeof(float));
+    memcpy(data, tOutputBuffer + 2, numFrames * sizeof(float));
     memcpy(gInputKeepBuffer[channel], &(tInputBuffer[numFrames]), 2 * sizeof(float));
     memcpy(gOutputKeepBuffer[channel], &(tOutputBuffer[numFrames]), 2 * sizeof(float));
 }
