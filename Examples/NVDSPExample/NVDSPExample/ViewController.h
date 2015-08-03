@@ -34,6 +34,7 @@
 
 #import "NVDSP.h"
 #import "NVHighpassFilter.h"
+#import "NVClippingDetection.h"
 
 @interface ViewController : UIViewController {
   RingBuffer *ringBuffer;
@@ -41,6 +42,7 @@
   AudioFileReader *fileReader;
   AudioFileWriter *fileWriter;
   NVHighpassFilter *HPF;
+  NVClippingDetection *CDT;
 }
 - (IBAction)HPFSliderChanged:(UISlider *)sender;
 

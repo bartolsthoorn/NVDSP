@@ -51,7 +51,10 @@
     NSURL *inputFileURL = [[NSBundle mainBundle] URLForResource:@"TLC" withExtension:@"mp3"];        
 
     HPF = [[NVHighpassFilter alloc] initWithSamplingRate:samplingRate];
+    HPF.Q = 0.5f;
     _HPF_cornerFrequency = 2000.0f;
+
+    CDT = [[NVClippingDetection alloc] init];
     
     fileReader = [[AudioFileReader alloc]
                   initWithAudioFileURL:inputFileURL 
@@ -68,9 +71,10 @@
          //NSLog(@"Time: %f", fileReader.currentTime);
          
          HPF.cornerFrequency = _HPF_cornerFrequency;
-         HPF.Q = 0.5f;
          
          [HPF filterData:data numFrames:numFrames numChannels:numChannels];
+
+         [CDT counterClipping:data numFrames:numFrames numChannels:numChannels];
      }];
 }
 
