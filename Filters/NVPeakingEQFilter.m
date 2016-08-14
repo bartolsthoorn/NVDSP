@@ -32,18 +32,18 @@
 
 - (void) calculateCoefficients {
     if ((centerFrequency != 0.0f) && (Q != 0.0f)) {
-        
+
         [self intermediateVariables:centerFrequency Q:Q];
-        
+
         float A = sqrt(pow(10.0f, (G/20.0f)));
-        
+
         a0 = (1  + (alpha / A));
-        b0 = (1 + (alpha * A))     / a0; 
-        b1 = (-2 * omegaC)         / a0; 
+        b0 = (1 + (alpha * A))     / a0;
+        b1 = (-2 * omegaC)         / a0;
         b2 = (1 - (alpha * A))     / a0;
-        a1 = (-2 * omegaC)         / a0; 
+        a1 = (-2 * omegaC)         / a0;
         a2 = (1 - alpha / A)       / a0;
-        
+
         [super setCoefficients];
     }
 }

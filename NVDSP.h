@@ -12,16 +12,16 @@
 
 @interface NVDSP : NSObject {
     float zero, one;
-    
+
     float samplingRate;
-    
+
     float *gInputKeepBuffer[2];
     float *gOutputKeepBuffer[2];
-    
+
     float omega, omegaS, omegaC, alpha;
-    
+ 
     float coefficients[5];
-    
+ 
     float a0, a1, a2, b0, b1, b2;
 }
 

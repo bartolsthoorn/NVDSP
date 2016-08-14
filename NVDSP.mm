@@ -52,7 +52,7 @@
     coefficients[2] = b2;
     coefficients[3] = a1;
     coefficients[4] = a2;
-    
+
     [self stabilityWarning];
 }
 
@@ -64,19 +64,19 @@
 }
 
 - (void) filterContiguousData: (float *)data numFrames:(UInt32)numFrames channel:(UInt32)channel {
-    
+
     // Provide buffer for processing
     float tInputBuffer[numFrames + 2];
     float tOutputBuffer[numFrames + 2];
-    
+
     // Copy the data
     memcpy(tInputBuffer, gInputKeepBuffer[channel], 2 * sizeof(float));
     memcpy(tOutputBuffer, gOutputKeepBuffer[channel], 2 * sizeof(float));
     memcpy(&(tInputBuffer[2]), data, numFrames * sizeof(float));
-    
+
     // Do the processing
     vDSP_deq22(tInputBuffer, 1, coefficients, tOutputBuffer, 1, numFrames);
-    
+
     // Copy the data
     memcpy(data, tOutputBuffer + 2, numFrames * sizeof(float));
     memcpy(gInputKeepBuffer[channel], &(tInputBuffer[numFrames]), 2 * sizeof(float));
@@ -120,9 +120,9 @@
 - (void) mono: (float *)data left: (float*) left right: (float*) right length: (vDSP_Length)length {
     [self applyGain:left length:length gain:0.5];
     [self applyGain:right length:length gain:0.5];
-    
+
     vDSP_vadd(left, 1, right, 1, left, 1, length);
-    
+
     [self interleave:data left:left right:left length:length];
 }
 
@@ -137,30 +137,30 @@
 - (void) logCoefficients {
     NSLog(@"------------\n");
     NSLog(@"Coefficients:\n");
-    
+
     NSLog(@"b0: %f\n", b0);
     NSLog(@"b1: %f\n", b1);
     NSLog(@"b2: %f\n", b2);
     NSLog(@"a1: %f\n", a0);
     NSLog(@"a1: %f\n", a1);
     NSLog(@"a2: %f\n", a2);
-    
+
     NSLog(@"\n");
-    
+
     NSLog(@"|a1| < 1 + a2 ");
     if (abs(a1) < (1 + a2)) {
         NSLog(@"a1 is stable\n");
     } else {
         NSLog(@"a1 is unstable\n");
     }
-    
+
     NSLog(@"|a2| < 1");
     if (abs(a2) < 1) {
         NSLog(@"a2 is stable\n");
     } else {
         NSLog(@"a2 is unstable\n");
     }
-    
+
     NSLog(@"------------\n");
 }
 - (void) stabilityWarning {
@@ -169,7 +169,7 @@
         NSLog(@"|a1| < 1 + a2 ");
         NSLog(@"Warning: a1 is unstable\n");
     }
-    
+
     if (abs(a2) < 1) {
     } else {
         NSLog(@"|a2| < 1");
