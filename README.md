@@ -1,5 +1,4 @@
 ## Audio Filters on iOS and OSX
-[![DOI](https://zenodo.org/badge/6288/bartolsthoorn/NVDSP.png)](http://dx.doi.org/10.5281/zenodo.12415)
 
 Implement high quality audio filters with just a few lines of code and [Novocaine](https://github.com/alexbw/novocaine), or your own audio library of choice.
 
